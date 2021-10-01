@@ -37,9 +37,26 @@ const getUserPerformance = id => USER_PERFORMANCE
     .filter(userPerformance => userPerformance.userId === id)
     .shift()
 
+
+/**
+ * @param {number} id
+ */
+const getUserTodayScore = id => USER_MAIN_DATA
+    .filter(user => user.id === id)
+    .shift().todayScore
+
+/**
+ * @param {number} id
+ */
+const getUserKeyData = id => USER_MAIN_DATA
+    .filter(user => user.id === id)
+    .shift().keyData
+
 module.exports = {
     getUserById,
     getUserActivityById,
     getUserAverageSession,
-    getUserPerformance
+    getUserPerformance,
+    getUserTodayScore,
+    getUserKeyData
 }

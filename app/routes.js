@@ -7,7 +7,8 @@ const {
     getUserById,
     getUserActivityById,
     getUserAverageSession,
-    getUserPerformance
+    getUserPerformance,
+    getUserTodayScore, getUserKeyData
 } = require('./models')
 
 const {
@@ -45,6 +46,29 @@ router.get('/user/:id/performance', (req, res) => {
 
     return handleNoUserData(res, userData)
 })
+
+router.get('/user/:id/today-score', (req, res) => {
+    const userId = idx(req, _ => _.params.id)
+    try {
+        const userData = getUserTodayScore(Number(userId))
+        return res.json({data : userData})
+    }catch{
+        res.statusCode = 404
+        return res.json('can not get user')
+    }
+})
+
+router.get('/user/:id/key-data', (req, res) => {
+    const userId = idx(req, _ => _.params.id)
+    try {
+        const userData = getUserKeyData(Number(userId))
+        return res.json({data : userData})
+    }catch{
+        res.statusCode = 404
+        return res.json('can not get user')
+    }
+})
+
 
 
 module.exports = router
