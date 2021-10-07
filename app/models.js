@@ -43,14 +43,14 @@ const getUserPerformance = id => USER_PERFORMANCE
  */
 const getUserTodayScore = id => USER_MAIN_DATA
     .filter(user => user.id === id)
-    .shift().todayScore
+    .shift()?.todayScore
 
 /**
  * @param {number} id
  */
 const getUserKeyData = id => USER_MAIN_DATA
     .filter(user => user.id === id)
-    .shift().keyData
+    .shift()?.keyData
 
 module.exports = {
     getUserById,

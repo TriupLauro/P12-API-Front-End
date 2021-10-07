@@ -49,26 +49,17 @@ router.get('/user/:id/performance', (req, res) => {
 
 router.get('/user/:id/today-score', (req, res) => {
     const userId = idx(req, _ => _.params.id)
-    try {
-        const userData = getUserTodayScore(Number(userId))
-        return res.json({data : userData})
-    }catch{
-        res.statusCode = 404
-        return res.json('can not get user')
-    }
+    const userData = getUserTodayScore(Number(userId))
+
+    return handleNoUserData(res, userData)
+
 })
 
 router.get('/user/:id/key-data', (req, res) => {
     const userId = idx(req, _ => _.params.id)
-    try {
-        const userData = getUserKeyData(Number(userId))
-        return res.json({data : userData})
-    }catch{
-        res.statusCode = 404
-        return res.json('can not get user')
-    }
+    const userData = getUserKeyData(Number(userId))
+
+    return handleNoUserData(res, userData)
 })
-
-
 
 module.exports = router
