@@ -1,6 +1,14 @@
-# Project 9 - Front-end Dashboard
+# Project 12 - Front-end Dashboard API
 
 This repo contains all the source code to run the micro API for the sports analytics dashboard SportSee.
+
+It should be used alongside [this repository](https://github.com/TriupLauro/KestelmanValentin_12_30092021)
+
+Follow the instructions in the above link readme to use it.
+
+------------------------------------
+
+Original readme :
 
 ## 1. General information
 
